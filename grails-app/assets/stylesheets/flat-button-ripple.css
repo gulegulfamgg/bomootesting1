@@ -1,0 +1,35 @@
+.flat-ripple-btn {
+  position: relative;
+  border: none !important;
+  outline: none !important;
+  background: white !important;
+  font-size: 16px;
+  padding: 10px 18px;
+}
+
+.ripple{
+  overflow:hidden;
+}
+
+.ripple-effect{
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+
+    
+  animation: ripple-animation 2s;
+}
+
+
+@keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+    }
+}
