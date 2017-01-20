@@ -1,20 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="layout" content="other"/>
+    <meta name="layout" content="admin"/>
     <title>OCP - Access Denied</title>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <style type="text/css">
-        body {
-            padding-top: 240px;
-        }
-
         .demo {
             font-size: 144px;
             text-align: center;
-            margin : 80px auto;       
-            color: #ccc;
-            text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+            margin : 150px auto;  
+            font-family: Aleo;     
+            color: #000;
+            //text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
         }
 
         .msg {

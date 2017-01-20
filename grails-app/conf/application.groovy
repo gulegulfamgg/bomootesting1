@@ -24,6 +24,17 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/api/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],
+	[pattern: '/transferRequestApi/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],
+	[pattern: '/bomooAppApi/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
 ]
+
+
+rest {
+    token {
+        validation {
+            enableAnonymousAccess = true
+        }
+    }
+}
 

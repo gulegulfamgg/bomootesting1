@@ -120,8 +120,8 @@
 <body>
     <div id="topbar">
         <div id="logo">
-            <span id="main"> PMRDA </span>
-            <span id="sub"> [ Pune Metropolitan Region Development Authority ] </span>
+            <span id="main"> Bank Of Maharashtra </span>
+            <span id="sub"> One Family One Bank </span>
         </div>
         <a class='dropdown-button topbar-icons' href='#' data-activates='account-actions'>
             <i class="material-icons md-light">more_vert</i>

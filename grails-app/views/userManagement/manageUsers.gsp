@@ -1,10 +1,11 @@
 <%@ page import="auth.*" %>
+<%@ page import="ocp.*" %>
 
 <!doctype html>
 <html>
 <head>
     <meta name="layout" content="other"/>
-    <title>OCP - Home</title>
+    <title>BOMOO - User Management</title>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <style type="text/css">
         .newHeader {
@@ -28,14 +29,31 @@
             bottom: 24px;
             right: 24px;
         }
+
+        .branchSelect {
+            margin-top: -22px;
+            float: right;
+            display: inline-block;
+            width : 360px;
+        }
     </style>
 </head>
 <body>
     <div class="row indigo" style="height : 150px; width : 100%; padding-top : 48px;">
         <div class="col s12 m12 l10 offset-l1" >
             <span class="newHeader"> User Management </span>
+            <span class="branchSelect"> 
+                <div class="input-field col s4" style=" width : 100%;">
+                    <select required name="Branch" id="branch">
+                        <option value="" disabled selected>Select Branch</option>
+                        <g:each in="${Branch.findAll()}" var="branch">
+                            <option value="${branch.id}">${branch.code} - ${branch.name}</option>
+                        </g:each>
+                    </select>
+                </div>
+            </span>
             <ul class="tabs indigo">
-                <g:each in="${Role.where{authority != 'ROLE_SITEADMIN' && authority != 'ROLE_USER'}.findAll()}" var="role" >
+                <g:each in="${Role.where{authority != 'ROLE_SITEADMIN'}.findAll()}" var="role" >
                     <li class="tab col s3">
                         <a class="active" href="#${role.name}">${role.name}</a>
                     </li>
@@ -43,7 +61,7 @@
             </ul>
         </div>
     </div>
-    <g:each in="${Role.where{authority != 'ROLE_SITEADMIN' && authority != 'ROLE_USER' }.findAll()}" var="role" >
+    <g:each in="${Role.where{authority != 'ROLE_SITEADMIN'}.findAll()}" var="role" >
                 
     <div class="row" id="${role.name}" >
         <div class="col s12 m12 l10 offset-l1" >
@@ -84,18 +102,27 @@
             <div class="modal-content">
                 <h5> Create User </h5>
                 <div class="row">
-                    <div class="input-field col s8">
+                    <div class="input-field col s4">
                         <input required name="username" id="username" type="text" class="validate">
                         <label for="username">Username</label>
                     </div>
                     <div class="input-field col s4">
-                        <select required name="role">
-                            <option value="" disabled selected>Select Role</option>
-                            <g:each in="${Role.where{ authority != 'ROLE_SITEADMIN' && authority != 'ROLE_USER' }.findAll()}" var="role">
-                                <option value="${role.id}">${role.name}</option>
+                        <select required name="type">
+                            <option value="" disabled selected>Select Type</option>      
+                            <option value="Admin"> Admin </option>
+                            <option value="Employee"> Employee </option>
+                            <option value="DSA"> DSA </option>
+                        </select>
+                        <label>Type</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select required name="Branch">
+                            <option value="" disabled selected>Select Branch</option>
+                            <g:each in="${Branch.findAll()}" var="branch">
+                                <option value="${branch.id}">${branch.code} - ${branch.name}</option>
                             </g:each>
                         </select>
-                        <label>Role</label>
+                        <label>Branch</label>
                     </div>
                 </div>
                 <div class="row">
@@ -129,6 +156,15 @@
             $('.modal-trigger').leanModal();
             $('select').material_select();
             $('ul.tabs').tabs();
+        });
+
+        $("#branch").change(function() {
+            $.ajax({
+                url:"${g.createLink(controller:'USerManagement', action:'get')}",
+                success: function(r) {
+
+                }
+            });
         });
     </script>
 </body>

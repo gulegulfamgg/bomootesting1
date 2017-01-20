@@ -36,27 +36,31 @@
 <body>
     <div id="topbar">
         <div id="logo">
-            <span id="main"> PMRDA </span>
-            <span id="sub"> </span>
+            <span id="main"> BOMOO </span>
+            <span id="sub">Bank of Maharashtra Officers Organization</span>
         </div>
         <a class='dropdown-button topbar-icons' href='#' data-activates='account-actions'>
             <i class="material-icons md-light">more_vert</i>
         </a>
-        <a class='dropdown-button topbar-icons' href='#' data-activates='account-actions'>
+        <ul id='account-actions' class='dropdown-content'>
+            <li><g:link controller="logoff">Log Out</g:link></li>
+        </ul>
+        <a class='dropdown-button topbar-icons' href='#' data-activates=''>
             <i class="material-icons md-light">notifications</i>
         </a>
         <a class='topbar-icons' href='#'>
             <i class="material-icons md-light">account_box</i>
         </a>
-        <ul id='account-actions' class='dropdown-content'>
-            
-        </ul>
+        
+        <a class='dropdown-button topbar-icons' href='http://localhost:8080' data-activates=''>
+            <i class="material-icons md-light">home</i>
+        </a>
     </div>
         <g:layoutBody/>
     <div id="footer">
         <div style="margin-top: 10px;">
-            About PMRDA &nbsp&nbsp &#124 &nbsp&nbsp Feedback &nbsp&nbsp &#124 &nbsp&nbsp Contact Us
-            <span style="float : right;">&#169 2014 Bharat Digital Solutions Private Limited. All Rights Reserved</span>
+            About BOMOO &nbsp&nbsp &#124 &nbsp&nbsp Feedback &nbsp&nbsp &#124 &nbsp&nbsp Contact Us
+            <span style="float : right;">&#169 All Rights Reserved</span>
         </div>
     </div>
 </body>
